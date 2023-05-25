@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS Files Links -->
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Title -->
+  <title><%=title%></title>
+</head>
+<body>
+   
+   <%- include('navbar')%>
+  
+   <table>
+      <thead>
+         <th>author </th>
+         <th>Content</th>
+         <th>Contact</th>
+         <th>Date</th>
+         <th>action</th>
+      </thead>
+
+      <% for(var i =0; i < blog.length; ++i) {%>
+      <tr>
+         <td><%=blog[i].author%></td>
+         <td><%=blog[i].content%></td>
+         <td><%=blog[i].contact%></td>
+         <td><%=blog[i].date.toLocaleDateString()%></td>
+
+         <td><a href="#">edit</a></td>
+         <td><a href="/delete/<%=blog[i].id%>">delete</a></td>
+      </tr>
+      <%
+   }%>
+   </table>
+
+
+  <script src="./scripts.js"></script>
+</body>
+</html>

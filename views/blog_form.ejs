@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Myblog | Login-form welcome to my blog</title>
+</head>
+<body>
+   
+
+   <form action="/blog" method="post" name="form" onsubmit="return myform()" id="form">
+      <h3>CRUD using Express js</h3>
+      <input type="text" name="author" id="username" placeholder="Author" required> <br>
+
+      <input type="text" name="content" id="content" placeholder="Content" required> <br>
+
+      <input type="text" name="contact" id="contact" placeholder="Contact" required> <br>
+
+      <button type="submit">submit</button>
+   </form>
+</body>
+
+
+
+<style type="text/css">
+
+   *,*::before,*::after{
+      padding: 0;
+      margin: 0;
+   }
+   body{
+      width: 100%;
+      background: rgb(255, 254, 254);
+   }
+   h3{
+      text-align: center;
+   }
+   form#form{
+      margin: 12rem 37%;
+   }
+   input{
+      border-radius: 1px;
+      margin: 10px 0;
+   }
+   #username,#content,#contact{
+      width: 23rem;
+      outline:none;
+      border: 1px solid black;
+      padding: 4px 9px;
+      height: 2rem;
+   }
+   #username:focus,#content:focus,#contact:focus{
+      box-shadow: 1px 1px 12px rgb(104, 104, 146);
+   }
+   button[type="submit"]{
+      height: 2rem;
+      cursor: pointer;
+      width: 6rem;
+   }
+</style>
+
+<!-- <script type="text/javascript" lang="javascript">
+
+  function myform() {
+	 let input = document.forms["form"]["author"].value
+	   if (input == "emmy") {
+	      alert ('yey');
+	   }
+	   alert("yry");
+}
+</script> -->
+</html>
