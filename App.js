@@ -1,11 +1,15 @@
 
-const express = require("express")
-const mongoose = require("mongoose")
-var Blog = require("./models/blog")
+const express = require("express") // require express from node modules
+const mongoose = require("mongoose")// require mongoose from node modules
+var Blog = require("./models/blog") 
 const app = express()
 
-// passing a promise
-mongoose.connect("mongodb://127.0.0.1/blog").then(function(){ // [then] method checking connection  can also use [sinkawait method]
+app.listen(5000, function(){ // creating a server on port 5000
+   console.log("my app is running at port "+ port);
+})
+
+// checking connection to the db
+mongoose.connect("mongodb://127.0.0.1/blog").then(function(){ 
    console.log("database connected");
 }).catch(function(error){
    console.log("database not connected"+error);
@@ -14,7 +18,7 @@ mongoose.connect("mongodb://127.0.0.1/blog").then(function(){ // [then] method c
 app.set("view engine", "ejs")
 app.use(express.urlencoded({extended:true})); 
 
-app.get("/",async function(require,response){ // fetching from the database
+app.get("/",async function(require,response){ 
  var blog =  await Blog.find({})
  response.render("index", {title: "Homepage", blog:blog})
 })
@@ -23,7 +27,7 @@ app.get("/blog-form", function(request,response) {
    response.render("blog_form")
 })
 
-app.post("/blog", function (request,response) { // a post middle ware
+app.post("/blog", function (request,response) {
   var blog = new Blog()
   blog.author = request.body.author
   blog.content = request.body.content
@@ -36,12 +40,8 @@ app.post("/blog", function (request,response) { // a post middle ware
 app.get("/delete/:id",async function(request,response){
    await Blog.deleteOne({id:request.params.id})
 
-    response.redirect("/")
+    response.redirect("/") // redirect to the index page
 })
 
-var port = 5000;
 
-app.listen(port, function(){
-   console.log("my app is running at port "+ port);
-})
 
