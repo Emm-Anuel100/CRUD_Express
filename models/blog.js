@@ -15,7 +15,7 @@ var blogSchema = mongoose.Schema({
    }
 })
  
-var Blog = mongoose.model("Blog", blogSchema)  // [Blog] first letter must be in upper case
+var Blog = mongoose.model("Blog", blogSchema)  
 
 
 // Blog.create({  // inserting data to the database
