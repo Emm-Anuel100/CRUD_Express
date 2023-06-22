@@ -4,11 +4,11 @@ const mongoose = require("mongoose")// require mongoose from node modules
 var Blog = require("./models/blog") 
 const app = express()
 
-app.listen(5000, function(){ // creating a server on port 5000
+app.listen(5000, function(){ // creating a server at port 5000
    console.log("my app is running at port 5000");
 })
 
-// checking connection to the db
+//  connection to the database
 mongoose.connect("mongodb://127.0.0.1/blog").then(function(){ 
    console.log("database connected");
 }).catch(function(error){
